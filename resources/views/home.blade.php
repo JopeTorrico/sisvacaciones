@@ -7,6 +7,12 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Lista de Trabajadores Activos</div>
                 <div class="panel-body">
+                    
+                    <form class="form-inline form-left pull-right">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                
                     @if($workers->isEmpty())
                     <h1 class="text-center">No existe trabajadores registrados</h1>
                     @else
@@ -55,7 +61,29 @@
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-right">
                                             <li><a href="{{ url('/worker/show/'.Crypt::encrypt($worker->id)) }}">Informacion de {{$worker->name}}</a></li>
+                                            <li class="divider"></li>
                                             <li><a href="{{ url('/vacation/create/'.Crypt::encrypt($worker->id).'/'.Crypt::encrypt($worker->name)) }}">Asignar Vacaciones</a></li>
+                                            <!--
+                                            <li class="dropdown">
+                                                <a href="{{ url('/permit/create/'.Crypt::encrypt($worker->id).'/'.Crypt::encrypt($worker->name)) }}" class="dropdown-toggle" data-toggle="dropdown" role="button">Asignar Permisos <span class="caret"> </span>
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="">Permiso Dias</a></li>
+                                                    <li><a href="">Permiso Horas</a></li>
+                                                    
+                                                </ul>
+                                            </li>-->
+                                            <li class="divider"></li>
+                                            <li class="dropdown-submenu">
+                                                <a href="{{ url('/permit/create/'.Crypt::encrypt($worker->id).'/'.Crypt::encrypt($worker->name)) }}">Asignar Permiso</a>
+                                                <ul class="dropdown-menu">
+                                                    <!--NO APARECE EL SUB MENU-->
+                                                    <li><a href="{{ url('/permit/create1/'.Crypt::encrypt($worker->id).'/'.Crypt::encrypt($worker->name)) }}" class="dropdown-item">Permiso por dias</a></li>
+                                                    <li><a href="" class="dropdown-item">Permiso por horas</a></li>
+                                                </ul>
+                                            </li>  
+                                            
+                                            
                                         </ul>
                                     </div>
                                 </td>

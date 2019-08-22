@@ -13,4 +13,7 @@ class Worker extends Model
     public function vacations(){
         return $this->hasMany('App\Vacation');
     }
+    public function permits(){
+    	return $this->hasMany('App\Permit');
+    }
 }

@@ -5,19 +5,16 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Registrar vacacion a {{$name_worker}}</div>
+                <div class="panel-heading">Registrar permiso a {{$name_worker}}</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/vacation/store') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/permit/store1') }}">
                         {!! csrf_field() !!}
 
                         <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Tipo:</label>
 
                             <div class="col-md-6">
-                                <!-- Esto es un comentario
-                                {!! Form::select('type',['' => 'Seleccione un tipo...','vacacion' => 'Vacacion','falta' => 'Falta','permiso' => 'Permiso'],null, array('class' => 'form-control')) !!}
-                                Aqui termina el comentario-->
-                                {!! Form::select('type',['' => 'Seleccione un tipo...','vacacion' => 'Vacacion','compensacion' => 'Compensacion'],null, array('class' => 'form-control')) !!}
+                                {!! Form::select('type',['permiso' => 'Permiso'],null, array('class' => 'form-control')) !!}
 
                                 @if ($errors->has('type'))
                                     <span class="help-block">
@@ -39,10 +36,10 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('days_taken') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Dias Tomados:</label>
+                            <label class="col-md-4 control-label">Horas Tomados:</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="days_taken" value="{{ old('days_taken') }}">
+                                <input type="text" class="form-control" name=" " value=" ">
 
                                 @if ($errors->has('days_taken'))
                                     <span class="help-block">
@@ -53,7 +50,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('date_init') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Fecha de Inicio:</label>
+                            <label class="col-md-4 control-label">Fecha:</label>
 
                             <div class="col-md-6">
                                 <input type="text" class="form-control" id="date-init" name="date_init" value="{{ old('date_init') }}">
@@ -83,7 +80,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Registrar Vacacion
+                                    Registrar Permiso
                                 </button>
                             </div>
                         </div>

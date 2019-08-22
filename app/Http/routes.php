@@ -49,6 +49,9 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/vacation/create/{id_worker}/{name_worker}', 'VacationController@create');
     Route::post('/vacation/store', 'VacationController@store');
+
+    Route::get('/permit/create/{id_worker}/{name_worker}', 'PermitController@create');
+    Route::post('/permit/store', 'PermitController@store');
 });
 
 Route::group(['middleware' => ['api']], function () {

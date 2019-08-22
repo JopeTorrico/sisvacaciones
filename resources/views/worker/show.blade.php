@@ -102,6 +102,7 @@
                     <table class="table">
                         <thead>
                         <tr>
+                            <th>Fecha</th>
                             <th>Fecha Inicio</th>
                             <th>Nro Dias</th>
                             <th>Motivo</th>
@@ -113,6 +114,7 @@
                         @if($vacation->type == 'vacacion')
                         <tr>
                             <th scope="row">{{date("d/m/Y", strtotime($vacation->created_at))}}</th>
+                            <th scope="row">{{date("d/m/Y", strtotime($vacation->date_init))}}</th>
                             <td>{{$vacation->days_taken}}</td>
                             <td>{{$vacation->reason}}</td>
                             <td>{{$vacation->observations}}</td>
@@ -132,8 +134,10 @@
                     <table class="table">
                         <thead>
                         <tr>
+                            <th>Fecha</th>
                             <th>Fecha Inicio</th>
                             <th>Nro Dias</th>
+                            <th>Nro Horas</th>
                             <th>Motivo</th>
                             <th>Observacion</th>
                         </tr>
@@ -143,7 +147,9 @@
                         @if($vacation->type == 'permiso')
                         <tr>
                             <th scope="row">{{date("d/m/Y", strtotime($vacation->created_at))}}</th>
+                            <th scope="row">{{date("d/m/Y", strtotime($vacation->date_init))}}</th>
                             <td>{{$vacation->days_taken}}</td>
+                            <td></td>
                             <td>{{$vacation->reason}}</td>
                             <td>{{$vacation->observations}}</td>
                         </tr>
@@ -155,13 +161,14 @@
             </div>
             <div class="panel panel-danger">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Faltas</h3>
+                    <h3 class="panel-title">Compensacion</h3>
 
                 </div>
                 <div class="panel-body">
                     <table class="table">
                         <thead>
                         <tr>
+                            <th>Fecha</th>
                             <th>Fecha Inicio</th>
                             <th>Nro Dias</th>
                             <th>Motivo</th>
@@ -170,9 +177,10 @@
                         </thead>
                         <tbody>
                         @foreach ($worker->vacations as $vacation)
-                        @if($vacation->type == 'falta')
+                        @if($vacation->type == 'compensacion')
                         <tr>
                             <th scope="row">{{date("d/m/Y", strtotime($vacation->created_at))}}</th>
+                            <th scope="row">{{date("d/m/Y", strtotime($vacation->date_init))}}</th>
                             <td>{{$vacation->days_taken}}</td>
                             <td>{{$vacation->reason}}</td>
                             <td>{{$vacation->observations}}</td>
